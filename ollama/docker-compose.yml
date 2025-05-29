@@ -10,7 +10,7 @@ services:
     networks:
       - ollama-net
     environment:
-      - OLLAMA_HOST:0.0.0.0
+      - OLLAMA_ORIGINS=http://n8n:5678
 
 networks:
   ollama-net:

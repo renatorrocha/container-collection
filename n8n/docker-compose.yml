@@ -15,7 +15,7 @@ services:
 
 networks:
   ollama-net:
-    external: true
+    driver: bridge
 
 volumes:
   n8n-data:
