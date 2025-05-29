@@ -1,14 +1,21 @@
 services:
   n8n:
     image: docker.n8n.io/n8nio/n8n
+    container_name: n8n
     ports:
       - "5678:5678"
     environment:
       N8N_PORT: 5678
       GENERIC_TIMEZONE: America/Sao_Paulo
-    restart: unless-stopped
     volumes:
-      - n8n-data:/home/node/.n8n/data
+      - n8n-data:/home/node/.n8n
+    restart: unless-stopped
+    networks:
+      - ollama-net
+
+networks:
+  ollama-net:
+    external: true
 
 volumes:
   n8n-data:
